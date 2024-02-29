@@ -82,31 +82,30 @@ const  isShow = computed(()=>{
     <div class="p-4 space-y-4">
       <h2 class="text-xl font-bold">
         Version - {{ pkg.version }}
-        <a class="text-red-500" href="https://github.com/Dooy/chatgpt-web-midjourney-proxy" target="_blank" v-if=" isShow  "> ({{ $t('mj.findVersion') }} {{ st.lastVersion }})</a>
-        <a class="text-gray-500" href="https://github.com/Dooy/chatgpt-web-midjourney-proxy" target="_blank" v-else-if="st.lastVersion"> ({{ $t('mj.yesLastVersion') }})</a>
       </h2>
       <div class="p-2 space-y-2 rounded-md bg-neutral-100 dark:bg-neutral-700">
-        <p v-html="$t('mj.infoStar')"></p>
-      </div>
+        <p>
+          此项目同时支持 chatgpt-web 和 midjourney 画图，使用OpenAI-KEY将只能使用ChatGpt!购买
+          <a
+            class="text-blue-600 dark:text-blue-500"
+            href="weixin://"
+            target="_blank"
+          >
+            Vx:tearsful(蓝色的海)
+          </a>
+          提供的二合一Key可同时ChatGPT和midjourney 画图！
+        </p>
+        </div>
       <p>{{ $t("setting.api") }}：{{ config?.apiModel ?? '-' }}</p>
-      <p v-if="isChatGPTAPI" class=" flex items-center justify-between">
-        <div>
+      <p v-if="isChatGPTAPI">
         {{ $t("setting.monthlyUsage") }}：{{ config?.usage ?? '-' }}
-        </div>
-        <div>
-        {{ $t("mj.totalUsage") }}：{{ config?.hard_limit_usd ?? '-' }}
-        </div>
-        <div>
-        {{ $t("setting.balance") }}：{{ config?.remaining ?? '-' }}
-        </div>
       </p>
       <p v-if="!isChatGPTAPI">
         {{ $t("setting.reverseProxy") }}：{{ config?.reverseProxy ?? '-' }}
       </p>
-       
-      <!-- <p>{{ $t("setting.timeout") }}：{{ config?.timeoutMs ?? '-' }}</p>  -->
-      <!-- <p>{{ $t("setting.socks") }}：{{ config?.socksProxy ?? '-' }}</p>
-      <p>{{ $t("setting.httpsProxy") }}：{{ config?.httpsProxy ?? '-' }}</p> -->
+      <p>{{ $t("setting.timeout") }}：{{ config?.timeoutMs ?? '-' }}</p>
+      <p>{{ $t("setting.socks") }}：{{ config?.socksProxy ?? '-' }}</p>
+      <p>{{ $t("setting.httpsProxy") }}：{{ config?.httpsProxy ?? '-' }}</p>
     </div>
   </NSpin>
 </template>
